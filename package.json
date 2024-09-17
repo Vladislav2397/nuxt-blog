@@ -13,5 +13,14 @@
     "nuxt": "^3.13.0",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@crazydos/nuxt-msw": "^1.0.0",
+    "msw": "^2.4.8"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
