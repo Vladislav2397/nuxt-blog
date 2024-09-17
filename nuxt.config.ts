@@ -9,7 +9,21 @@ export default defineNuxtConfig({
     enable: true,
     folderPath: "~/msw",
   },
+  css: [
+    '~/shared/styles/reset.scss',
+    '~/shared/styles/page-transition.scss',
+    '~/shared/styles/global.scss',
+  ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/shared/styles/vars/_index.scss";'
+        }
+      }
+    },
+  },
   devServer: {
     port: 8000
-  }
+  },
 })

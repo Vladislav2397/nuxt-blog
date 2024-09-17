@@ -1,8 +1,13 @@
+<script setup lang="ts">
+import { Header } from '~/widgets/Header'
+</script>
+
 <template>
-<h1>Application</h1>
-<pre>{{data}}</pre>
+    <NuxtLoadingIndicator />
+    <Header />
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>
 
-<script setup>
-const { data, error } = await useFetch('/api/v1/articles')
-</script>
+
