@@ -2,7 +2,7 @@
 import { MainArticleBanner } from "~/widgets/MainArticleBanner"
 import { LatestArticles } from "~/widgets/LatestArticles"
 
-await useFetch('http://localhost:3010/api/v1/articles', {
+await useFetch('/api/v1/articles', {
     key: 'articles'
 })
 

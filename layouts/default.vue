@@ -22,11 +22,12 @@ import { MostPopularArticle } from "~/widgets/MostPopularArticle"
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: center;
     gap: rem(24);
 }
 
 .main {
-    flex-grow: 1;
+    width: rem(744);
 }
 
 .aside {

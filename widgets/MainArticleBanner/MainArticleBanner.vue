@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {ArticleBanner} from "~/entities/article/ui/ArticleBanner"
-
 </script>
 
 <template>

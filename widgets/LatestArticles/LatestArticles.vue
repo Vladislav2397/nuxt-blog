@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import {SectionHeader} from "~/shared/ui/SectionHeader"
+import { SectionHeader } from "~/shared/ui/SectionHeader"
 import { ArticleCard } from "~/entities/article/ui/ArticleCard"
+import type { Article } from "~/entities/article/types"
 
-const { data } = useFetch<{ articles: any[] }>('http://localhost:3010/api/v1/articles')
-
-console.log('data', JSON.stringify(data.value))
-
+const { data } = useFetch<{ list: Article[], total: number }>('/api/v1/articles')
 </script>
 
 <template>
@@ -14,7 +12,7 @@ console.log('data', JSON.stringify(data.value))
     <div :class="styles.list">
         <ArticleCard
             v-if="data"
-            v-for="article in data.articles"
+            v-for="article in data.list"
             :key="article.id"
             :article="article"
         />

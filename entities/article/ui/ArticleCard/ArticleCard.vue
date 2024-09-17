@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import {AppText} from "~/shared/ui/AppText"
 import dayjs from "dayjs"
+import type {Article} from "~/entities/article/types"
 
 const props = defineProps<{
-    article: {
-        id: number
-        title: string
-        description: string
-        image: string
-        date: string
-    }
+    article: Article
 }>()
 
 const date = computed(() => dayjs(props.article.date).format('D MMMM YYYY'))
@@ -39,27 +34,27 @@ defineOptions({
             weight="bold"
             :text="article.title"
         />
-<!--        <AppText-->
-<!--            :class="styles.author"-->
-<!--            tag="span"-->
-<!--            size="16"-->
-<!--            weight="regular"-->
-<!--            text="By Author"-->
-<!--        />-->
-<!--        <AppText-->
-<!--            :class="styles.description"-->
-<!--            tag="p"-->
-<!--            size="14"-->
-<!--            weight="regular"-->
-<!--            :text="article.description"-->
-<!--        />-->
-<!--        <AppText-->
-<!--            :class="styles.date"-->
-<!--            tag="span"-->
-<!--            size="14"-->
-<!--            weight="regular"-->
-<!--            :text="date"-->
-<!--        />-->
+        <AppText
+            :class="styles.author"
+            tag="span"
+            size="16"
+            weight="regular"
+            text="By Author"
+        />
+        <AppText
+            :class="styles.description"
+            tag="p"
+            size="14"
+            weight="regular"
+            :text="article.description"
+        />
+        <AppText
+            :class="styles.date"
+            tag="span"
+            size="14"
+            weight="regular"
+            :text="date"
+        />
     </div>
 </NuxtLink>
 </template>
@@ -83,6 +78,7 @@ defineOptions({
     img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -90,6 +86,14 @@ defineOptions({
     display: flex;
     flex-direction: column;
     padding: rem(12);
+}
+
+.label {
+    margin-bottom: rem(4);
+}
+
+.title {
+    margin-bottom: rem(8);
 }
 
 .author {
@@ -104,4 +108,4 @@ defineOptions({
     text-decoration: none;
 }
 </style>
-<style lang="scss" module="cardStyles" src="../../../../shared/styles/card.module.scss" />
+<style lang="scss" module="cardStyles" src="~/shared/styles/decoration/card.module.scss" />
