@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { AppText } from "~/shared/ui/AppText"
+import dayjs from "dayjs"
+
 import type {Article} from "~/entities/article/types"
-import dayjs from "dayjs";
+
+import { AppText } from "~/shared/ui/AppText"
 
 const props = defineProps<{
     article: Article
@@ -11,7 +13,7 @@ const date = dayjs(props.article.date).format('D MMMM YYYY')
 </script>
 
 <template>
-<div :class="[styles.root, cardStyles.root]">
+<NuxtLink :to="`/blog/${article.id}`" :class="[styles.root, cardStyles.root]">
     <div :class="styles.image">
         <img :src="article.image" alt="article image" />
     </div>
@@ -30,7 +32,7 @@ const date = dayjs(props.article.date).format('D MMMM YYYY')
             :text="date"
         />
     </div>
-</div>
+</NuxtLink>
 </template>
 
 <style module="styles" lang="scss">
@@ -49,6 +51,8 @@ const date = dayjs(props.article.date).format('D MMMM YYYY')
     border-radius: rem(12);
     
     img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 }

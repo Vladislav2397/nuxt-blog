@@ -2,10 +2,6 @@
 import { MainArticleBanner } from "~/widgets/MainArticleBanner"
 import { LatestArticles } from "~/widgets/LatestArticles"
 
-await useFetch('/api/v1/articles', {
-    key: 'articles'
-})
-
 defineOptions({
     name: 'BlogPage'
 })

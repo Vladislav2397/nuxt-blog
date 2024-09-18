@@ -3,7 +3,7 @@ import { SectionHeader } from "~/shared/ui/SectionHeader"
 import { ArticleCard } from "~/entities/article/ui/ArticleCard"
 import type { Article } from "~/entities/article/types"
 
-const { data } = useFetch<{ list: Article[], total: number }>('/api/v1/articles')
+const { data } = useFetch<{ list: Article[], total: number }>('/api/v1/articles?limit=10')
 </script>
 
 <template>

@@ -1,45 +1,22 @@
 <script setup lang="ts">
 import { ArticleSideCard } from '~/entities/article/ui/ArticleSideCard'
 import { SectionHeader } from "~/shared/ui/SectionHeader"
-
-const articles = computed(() => [
-    {
-        id: 1,
-        title: 'Article title 1',
-        description: 'Article description 1',
-        content: 'Article content 1',
-        image: 'https://placehold.co/640x480.png',
-        date: '2024-01-01T00:00:00.000Z',
-    },
-    {
-        id: 2,
-        title: 'Article title 2',
-        description: 'Article description 2',
-        content: 'Article content 2',
-        image: 'https://placehold.co/640x480.png',
-        date: '2024-01-02T00:00:00.000Z',
-    },
-    {
-        id: 3,
-        title: 'Article title 3',
-        description: 'Article description 3',
-        content: 'Article content 3',
-        image: 'https://placehold.co/640x480.png',
-        date: '2024-01-02T00:00:00.000Z',
-    }
-])
+import type {Article} from "~/entities/article/types"
 
 defineOptions({
     name: 'MostPopularArticle'
 })
 
+const { data } = await useFetch<{ list: Article[] }>('/api/v1/articles?filter=popular&limit=3', {
+    key: 'popular-articles',
+})
 </script>
 
 <template>
 <div :class="styles.root">
     <SectionHeader :class="styles.title" title="Most popular" />
-    <div :class="styles.list">
-        <ArticleSideCard v-for="article in articles" :article="article" />
+    <div :class="styles.list" v-if="data">
+        <ArticleSideCard v-for="article in data.list" :article="article" />
     </div>
 </div>
 </template>

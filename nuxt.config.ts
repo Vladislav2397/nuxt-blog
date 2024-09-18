@@ -9,6 +9,12 @@ export default defineNuxtConfig({
     enable: true,
     folderPath: "~/msw",
   },
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    }
+  },
   css: [
     '~/shared/styles/reset.scss',
     '~/shared/styles/page-transition.scss',
