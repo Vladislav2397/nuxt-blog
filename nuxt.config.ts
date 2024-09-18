@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: [
         '@crazydos/nuxt-msw',
-        '@pinia/nuxt'
+        '@pinia/nuxt',
     ],
     msw : {
         enable: true,
