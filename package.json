@@ -10,8 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.5.4",
     "dayjs": "^1.11.13",
     "nuxt": "^3.13.0",
+    "pinia": "^2.2.2",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -19,6 +21,9 @@
     "@crazydos/nuxt-msw": "^1.0.0",
     "msw": "^2.4.8",
     "sass": "^1.78.0"
+  },
+  "overrides": {
+    "vue": "latest"
   },
   "msw": {
     "workerDirectory": [
